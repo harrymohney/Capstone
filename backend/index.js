@@ -20,6 +20,12 @@ app.use(morgan('dev'));
 
 const productsRouter = require('./routes/products');
 app.use('/products', productsRouter);
+const ordersRouter = require('./routes/orders');
+app.use('/orders', ordersRouter);
+const cartsRouter = require('./routes/carts');
+app.use('/carts', cartsRouter);
+const categoriesRouter = require('./routes/categories');
+app.use('/categories', categoriesRouter);
 
 
 app.listen(process.env.PORT || 5000, () => {
