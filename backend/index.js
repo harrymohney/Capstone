@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
-const strainsRouter = require('./routes/strains');
-app.use('/strains', strainsRouter);
+const productsRouter = require('./routes/products');
+app.use('/products', productsRouter);
 
 
 app.listen(process.env.PORT || 5000, () => {
