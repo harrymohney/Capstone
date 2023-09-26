@@ -7,7 +7,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.DATABASE_URI, {
   useNewUrlParser: true,
@@ -18,10 +17,16 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
-const strainsRouter = require('./routes/strains');
-app.use('/strains', strainsRouter);
+const productsRouter = require('./routes/products');
+app.use('/products', productsRouter);
+const ordersRouter = require('./routes/orders');
+app.use('/orders', ordersRouter);
+const cartsRouter = require('./routes/carts');
+app.use('/carts', cartsRouter);
+const categoriesRouter = require('./routes/categories');
+app.use('/categories', categoriesRouter);
 
-
-app.listen(process.env.PORT || 5000, () => {
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
